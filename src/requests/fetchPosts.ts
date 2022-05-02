@@ -2,10 +2,8 @@ import axios from "axios";
 import { PostType } from "../types/Post";
 
 type resposenType = {
-  data: {
-    page: number;
-    posts: PostType[];
-  };
+  page: number;
+  posts: PostType[];
 };
 
 export const fetchPosts = async (params: {page: number, loginToken: string}): Promise<PostType[]> => {
@@ -14,9 +12,9 @@ export const fetchPosts = async (params: {page: number, loginToken: string}): Pr
     { params }
   );
 
-  if (!response.data.data.posts) {
+  if (!response.data.posts) {
     throw new Error("Failed to fetch posts");
   }
 
-  return response.data.data.posts;
+  return response.data.posts;
 };
