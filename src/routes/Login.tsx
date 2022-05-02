@@ -7,7 +7,6 @@ import { LoginCtx } from "../context/LoginContextProvider";
 import { loginMutation } from "../requests/loginMutation";
 import { LoginFormValues } from "../types/LoginFromValues";
 import { useNavigate } from "react-router-dom";
-import classes from "./Login.module.scss";
 import React from "react";
 
 const Login: React.FC = () => {
@@ -39,8 +38,8 @@ const Login: React.FC = () => {
   }
 
   return (
-    <div className={classes.loginWrapper}>
-      <div className={classes.loginForm}>
+    <div className="">
+      <div className="">
         <h1>Login</h1>
         <Formik
           initialValues={initialValues}

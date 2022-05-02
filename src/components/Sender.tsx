@@ -6,7 +6,7 @@ const Sender: React.FC<{ sender: string; amount: number }> = ({
   amount,
 }) => {
   return (
-    <div className={classes.sender}>
+    <div className="">
       <p>{sender}: {amount}</p>
     </div>
   );

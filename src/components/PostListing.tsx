@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Post from "../components/Post";
 import { PostType } from "../types/Post";
-import classes from "./PostListing.module.scss";
 
 const PostListing: React.FC<{ posts: PostType[] }> = ({ posts }) => {
   const [postListing, setPostListing] = useState<PostType[]>([]);
@@ -33,7 +32,7 @@ const PostListing: React.FC<{ posts: PostType[] }> = ({ posts }) => {
   };
 
   return (
-    <div className={classes.listingWrapper}>
+    <div className="">
       <input onChange={(e) => setFilterValue(e.target.value)} placeholder="search posts"></input>
 
       <button onClick={() => setSortDirection("desc")}>Latest first</button>
