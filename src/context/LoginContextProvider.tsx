@@ -1,29 +1,29 @@
 import * as React from "react";
 
 export type LoginContextType = {
-  sl_token: string;
-  setToken: (sl_token: string) => void;
+  loginToken: string;
+  setToken: (loginToken: string) => void;
 };
 
 const defaultValue: LoginContextType = {
-  sl_token: "",
+  loginToken: "",
   setToken: () => {},
 };
 
 export const LoginCtx = React.createContext<LoginContextType>(defaultValue);
 
 const LoginProvider: React.FC<React.ReactNode> = (props) => {
-  const [sl_token, setSlToken] = React.useState<string>(
-    localStorage.getItem("sl_token") ?? ""
+  const [loginToken, setLoginToken] = React.useState<string>(
+    localStorage.getItem("loginToken") ?? ""
   );
 
-  const setToken = (sl_token: string) => {
-    localStorage.setItem("sl_token", sl_token);
-    setSlToken(sl_token);
+  const setToken = (loginToken: string) => {
+    localStorage.setItem("loginToken", loginToken);
+    setLoginToken(loginToken);
   };
 
   return (
-    <LoginCtx.Provider value={{ sl_token, setToken }}>
+    <LoginCtx.Provider value={{ loginToken, setToken }}>
       {props.children}
     </LoginCtx.Provider>
   );

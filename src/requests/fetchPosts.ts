@@ -8,7 +8,7 @@ type resposenType = {
   };
 };
 
-export const fetchPosts = async (params: {page: number, sl_token: string}): Promise<PostType[]> => {
+export const fetchPosts = async (params: {page: number, loginToken: string}): Promise<PostType[]> => {
   const response = await axios.get<resposenType>(
     "https://api.supermetrics.com/assignment/posts",
     { params }

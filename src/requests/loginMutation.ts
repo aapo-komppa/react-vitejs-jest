@@ -5,7 +5,7 @@ const CLIENT_ID = "ju16a6m81mhid5ue1z3v2g0uh";
 
 type LoginResponse = {
   data: {
-    sl_token: string;
+    login_token: string;
     client_id: string;
     email: string;
   }
@@ -17,5 +17,5 @@ export const loginMutation = async (loginData: LoginFormValues) => {
     { ...loginData, client_id: CLIENT_ID },
   );
 
-  return response.data.data;
+  return response.data.data.login_token;
 };

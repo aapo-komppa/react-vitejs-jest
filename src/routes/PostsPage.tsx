@@ -14,9 +14,9 @@ const PostsPage: React.FC = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState<PostType[]>([]);
   const [senders, setSenders] = useState<Map<string, number>>(new Map());
-  const { sl_token } = useContext(LoginCtx);
+  const { loginToken } = useContext(LoginCtx);
   const { isLoading, isError, data: fetchedPosts } = useQuery("fetchPosts", () =>
-    fetchPosts({ page: 1, sl_token })
+    fetchPosts({ page: 1, loginToken })
   );
 
   useEffect(() => {
