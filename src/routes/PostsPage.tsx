@@ -31,8 +31,8 @@ const PostsPage: React.FC = () => {
 
       const tempMap = new Map<string, number>();
       posts.forEach((post) => {
-        const previousAmount = tempMap.get(post.from_name) || 0;
-        tempMap.set(post.from_name, previousAmount + 1);
+        const previousAmount = tempMap.get(post.fromName) || 0;
+        tempMap.set(post.fromName, previousAmount + 1);
       });
       setSenders(tempMap);
     }
@@ -40,7 +40,7 @@ const PostsPage: React.FC = () => {
 
   const handleSenderFilter = (sender: string): void => {
     if (!fetchedPosts) { return; }
-    const filteredPosts = fetchedPosts.filter((post) => post.from_name === sender) ?? [];
+    const filteredPosts = fetchedPosts.filter((post) => post.fromName === sender) ?? [];
     setPosts(filteredPosts);
   };
 

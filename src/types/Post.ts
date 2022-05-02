@@ -1,7 +1,7 @@
 export type PostType = {
-  created_time: string;
-  from_id: string;
-  from_name: string;
+  createdTime: string;
+  fromId: string;
+  fromName: string;
   id: string;
   message: string;
   type: string;

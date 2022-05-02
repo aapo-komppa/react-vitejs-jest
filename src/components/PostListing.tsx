@@ -22,12 +22,12 @@ const PostListing: React.FC<{ posts: PostType[] }> = ({ posts }) => {
     return posts.sort((a, b) => {
       if (sortDirection === "asc") {
         return (
-          new Date(a.created_time).getTime() -
-          new Date(b.created_time).getTime()
+          new Date(a.createdTime).getTime() -
+          new Date(b.createdTime).getTime()
         );
       }
       return (
-        new Date(b.created_time).getTime() - new Date(a.created_time).getTime()
+        new Date(b.createdTime).getTime() - new Date(a.createdTime).getTime()
       );
     });
   };
