@@ -13,8 +13,8 @@ type LoginResponse = {
 
 export const loginMutation = async (loginData: LoginFormValues) => {
   const response = await axios.post<LoginResponse>(
-    "https://api.supermetrics.com/assignment/register",
-    { ...loginData, client_id: CLIENT_ID },
+    `${import.meta.env.VITE_CLIENT_ID}/login`,
+    { ...loginData, client_id: import.meta.env.VITE_CLIENT_ID },
   );
 
   return response.data.data.login_token;

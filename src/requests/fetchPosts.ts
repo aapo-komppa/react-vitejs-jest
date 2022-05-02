@@ -10,7 +10,7 @@ type resposenType = {
 
 export const fetchPosts = async (params: {page: number, loginToken: string}): Promise<PostType[]> => {
   const response = await axios.get<resposenType>(
-    "https://api.supermetrics.com/assignment/posts",
+    `${import.meta.env.VITE_CLIENT_ID}/posts`,
     { params }
   );
 
