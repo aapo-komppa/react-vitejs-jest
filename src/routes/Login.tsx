@@ -28,7 +28,6 @@ const Login: React.FC = () => {
       console.error(error);
     },
     onSuccess: (token) => {
-      console.log('success');
       setToken(token);
       navigate("/posts", { replace: true });
     },
