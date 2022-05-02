@@ -11,9 +11,11 @@ type LoginResponse = {
   }
 };
 
-export const loginMutation = (loginData: LoginFormValues) => {
-  return axios.post<LoginResponse>(
+export const loginMutation = async (loginData: LoginFormValues) => {
+  const response = await axios.post<LoginResponse>(
     "https://api.supermetrics.com/assignment/register",
     { ...loginData, client_id: CLIENT_ID },
   );
+
+  return response.data.data;
 };

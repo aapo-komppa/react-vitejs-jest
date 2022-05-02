@@ -15,7 +15,7 @@ const PostsPage: React.FC = () => {
   const [posts, setPosts] = useState<PostType[]>([]);
   const [senders, setSenders] = useState<Map<string, number>>(new Map());
   const { sl_token } = useContext(LoginCtx);
-  const { isLoading, isError, data } = useQuery("fetchPosts", () =>
+  const { isLoading, isError, data: fetchedPosts } = useQuery("fetchPosts", () =>
     fetchPosts({ page: 1, sl_token })
   );
 
@@ -26,9 +26,8 @@ const PostsPage: React.FC = () => {
   }, [isError]);
 
   useEffect(() => {
-    if (data) {
-      const posts = data.data.data.posts;
-      setPosts(posts);
+    if (fetchedPosts) {
+      setPosts(fetchedPosts);
 
       const tempMap = new Map<string, number>();
       posts.forEach((post) => {
@@ -37,16 +36,16 @@ const PostsPage: React.FC = () => {
       });
       setSenders(tempMap);
     }
-  }, [data]);
+  }, [fetchedPosts]);
 
   const handleSenderFilter = (sender: string): void => {
-    const filteredPosts =
-      data?.data.data.posts.filter((post) => post.from_name === sender) ?? [];
+    if (!fetchedPosts) { return; }
+    const filteredPosts = fetchedPosts.filter((post) => post.from_name === sender) ?? [];
     setPosts(filteredPosts);
   };
 
   const clearSenderFilter = (): void => {
-    setPosts(data?.data.data.posts ?? []);
+    setPosts(fetchedPosts ?? []);
   };
 
   const getSendersAlphabetically = (): string[] => {

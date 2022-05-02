@@ -8,9 +8,15 @@ type resposenType = {
   };
 };
 
-export const fetchPosts = (params: {page: number, sl_token: string}) => {
-  return axios.get<resposenType>(
+export const fetchPosts = async (params: {page: number, sl_token: string}): Promise<PostType[]> => {
+  const response = await axios.get<resposenType>(
     "https://api.supermetrics.com/assignment/posts",
     { params }
   );
+
+  if (!response.data.data.posts) {
+    throw new Error("Failed to fetch posts");
+  }
+
+  return response.data.data.posts;
 };

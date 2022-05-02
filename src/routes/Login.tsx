@@ -29,7 +29,7 @@ const Login: React.FC = () => {
       console.error(error);
     },
     onSuccess: (data) => {
-      setToken(data.data.data.sl_token);
+      setToken(data.sl_token);
       navigate("/posts", { replace: true });
     },
   });
