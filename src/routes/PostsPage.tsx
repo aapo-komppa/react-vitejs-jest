@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { PostType } from "../types/Post";
 import PostListing from "../components/PostListing";
 import Sender from "../components/Sender";
-import classes from "./PostsPage.module.scss";
-import SkipLink from "../components/SkipLink";
 import React from "react";
 
 const PostsPage: React.FC = () => {
@@ -59,9 +57,6 @@ const PostsPage: React.FC = () => {
 
   return (
     <>
-      <SkipLink skipTo="#main-content" className={classes.skipLink}>
-        <button type="button">Skip Navigation Links</button>
-      </SkipLink>
       <div className="flex flex-row">
         <div className="bg-slate-100 rounded-xl p-8 m-10 mb-auto w-1/12">
           <button onClick={clearSenderFilter} className="font-bold text-left">
