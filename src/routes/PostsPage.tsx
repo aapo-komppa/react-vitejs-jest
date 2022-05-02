@@ -30,7 +30,7 @@ const PostsPage: React.FC = () => {
       setPosts(fetchedPosts);
 
       const tempMap = new Map<string, number>();
-      posts.forEach((post) => {
+      fetchedPosts.forEach((post) => {
         const previousAmount = tempMap.get(post.fromName) || 0;
         tempMap.set(post.fromName, previousAmount + 1);
       });
@@ -62,22 +62,22 @@ const PostsPage: React.FC = () => {
       <SkipLink skipTo="#main-content" className={classes.skipLink}>
         <button type="button">Skip Navigation Links</button>
       </SkipLink>
-      <div className="">
-        <div className="">
-          <button onClick={clearSenderFilter} className="">
+      <div className="flex flex-row">
+        <div className="bg-slate-100 rounded-xl p-8 m-10 mb-auto w-1/12">
+          <button onClick={clearSenderFilter} className="font-bold text-left">
             Show from all senders
           </button>
           {getSendersAlphabetically().map((key) => (
             <button
               key={key}
               onClick={() => handleSenderFilter(key)}
-              className=""
+              className="mt-1 font-bold text-left"
             >
               <Sender sender={key} amount={senders.get(key) ?? 0} />
             </button>
           ))}
         </div>
-        <div className="" id="main-content">
+        <div className="m-10 ml-0 w-11/12" id="main-content">
           <PostListing posts={posts} />
         </div>
       </div>

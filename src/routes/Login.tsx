@@ -67,7 +67,7 @@ const Login: React.FC = () => {
                 type="submit"
                 name="submit"
                 disabled={!formik.isValid || formik.isSubmitting}
-                className="mt-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md "
+                className="mt-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md"
               >
                 Login
               </button>

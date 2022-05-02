@@ -32,11 +32,11 @@ const PostListing: React.FC<{ posts: PostType[] }> = ({ posts }) => {
   };
 
   return (
-    <div className="">
-      <input onChange={(e) => setFilterValue(e.target.value)} placeholder="search posts"></input>
+    <div>
+      <input onChange={(e) => setFilterValue(e.target.value)} placeholder="search posts" className="border-solid border-2 border-grey-400"></input>
 
-      <button onClick={() => setSortDirection("desc")}>Latest first</button>
-      <button onClick={() => setSortDirection("asc")}>oldest first</button>
+      <button className="bg-blue-500 px-2 text-white ml-2 font-semibold rounded-lg shadow-md" onClick={() => setSortDirection("desc")}>Latest first</button>
+      <button className="bg-blue-500 px-2 text-white ml-2 font-semibold rounded-lg shadow-md" onClick={() => setSortDirection("asc")}>oldest first</button>
 
       <ul>
         {postListing.map((post) => (

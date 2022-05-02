@@ -40,6 +40,14 @@ const posts = [
     message: "Mauris malesuada accumsan sapien. Etiam consectetur purus elit, quis ultricies enim ornare ut. Cras laoreet cursus massa, sed luctus ipsum vestibulum sed. Cras quis orci at orci ultrices tempus efficitur a risus. Duis tellus ipsum, egestas id tempor posuere, accumsan non libero. Morbi sollicitudin augue et ligula venenatis lobortis. Aliquam euismod erat vitae nulla pretium mollis. Quisque commodo quis nibh a accumsan. Fusce eu leo sem. Vivamus lacinia consequat urna, ac maximus risus euismod a. Etiam dictum mattis velit eu maximus.",
     type: "text"
   },
+  { 
+    id: 5,
+    createdTime: "2022-01-21",
+    fromId: 2,
+    fromName: "Jane Doe",
+    message: "Just a test post",
+    type: "text"
+  },
 ];
 
 app.post("/login", (req, res) => {
